@@ -2,27 +2,30 @@ import pygame
 from random import randint
 
 pygame.init()
-ventana = pygame.display.set_mode((640,480))
+ventana = pygame.display.set_mode((630, 410))
 pygame.display.set_caption("Ejemplo 4")
-fondo = pygame.image.load("fondo.png").convert()
-ventana.blit(fondo,[50,100])
+
+fond = pygame.image.load("fondo.png")
+fondrect = fond.get_rect()
+
+fondrect.left = 0.1
+fondrect.top = 9
 
 ball = pygame.image.load("ball.png")
 ballrect = ball.get_rect()
 speed = [randint(3, 6), randint(3, 6)]
 ballrect.move_ip(0, 0)
 
-
 barra = pygame.image.load("barra.png")
 barrarect = barra.get_rect()
-barrarect.move_ip(240, 450)
+barrarect.move_ip(340, 385)
 
 bricklist = []
 for brick in bricklist:
     brick = pygame.image.load("brick.png")
     brickrect = brick.get_rect()
 
-fuente = pygame.font.Font(None, 200)
+fuente = pygame.font.Font(None, 150)
 
 jugando = True
 while jugando:
@@ -44,13 +47,14 @@ while jugando:
     if ballrect.top < 0:
         speed[1] = -speed[1]
     if ballrect.bottom > ventana.get_height():
-        texto = fuente.render("Game Over", True, (125,125,125))
+        texto = fuente.render("Game Over", True, (0, 0, 0))
         texto_rect = texto.get_rect()
         texto_x = ventana.get_width() / 2 - texto_rect.width / 2
         texto_y = ventana.get_height() / 2 - texto_rect.height / 2
         ventana.blit(texto, [texto_x, texto_y])
     else:
-        ventana.fill((252, 243, 207))
+        ventana.fill((0, 0, 0))
+        ventana.blit(fond, fondrect)
         ventana.blit(ball, ballrect)
         ventana.blit(barra, barrarect)
 

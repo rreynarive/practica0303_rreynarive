@@ -4,7 +4,8 @@ import pygame
 pygame.init()
 ventana = pygame.display.set_mode((640, 480))
 pygame.display.set_caption("ejercicio 2")
-
+fond = pygame.image.load("fondo.png").convert()
+ventana.blit(fond, [5, 5])
 
 ball = pygame.image.load("ball.png")
 
@@ -26,7 +27,7 @@ while jugando:
     if ballrect.top < 0 or ballrect.bottom > ventana.get_height():
         speed[1] = -speed[1]
 
-    ventana.fill((252, 243, 207))
+    ventana.fill((0, 100, 0))
 
     ventana.blit(ball, ballrect)
     pygame.display.flip()

@@ -3,8 +3,10 @@ import pygame
 #Creacion de ventana de videojuego
 pygame.init()
 
-ventana = pygame.display.set_mode((640,480))
+ventana = pygame.display.set_mode((640,410))
 pygame.display.set_caption("Ejercicio 1")
+fondo = pygame.image.load("fondo.png")
+ventana.blit(fondo,[5,5])
 
 jugando = True
 while jugando:
@@ -12,7 +14,6 @@ while jugando:
         if event.type == pygame.QUIT:
             jugando = False
 
-    ventana.fill((252, 243, 207))
 
     pygame.display.flip()
 
