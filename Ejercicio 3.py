@@ -4,13 +4,14 @@ from random import randint
 pygame.init()
 ventana = pygame.display.set_mode((640,480))
 pygame.display.set_caption("Ejemplo 4")
-fondo = pygame.image.load("fondo.png")
-ventana.blit(fondo,(0,0))
+fondo = pygame.image.load("fondo.png").convert()
+ventana.blit(fondo,[50,100])
 
 ball = pygame.image.load("ball.png")
 ballrect = ball.get_rect()
 speed = [randint(3, 6), randint(3, 6)]
 ballrect.move_ip(0, 0)
+
 
 barra = pygame.image.load("barra.png")
 barrarect = barra.get_rect()
@@ -21,7 +22,7 @@ for brick in bricklist:
     brick = pygame.image.load("brick.png")
     brickrect = brick.get_rect()
 
-fuente = pygame.font.Font(None, 100)
+fuente = pygame.font.Font(None, 200)
 
 jugando = True
 while jugando:
