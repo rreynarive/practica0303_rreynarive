@@ -40,14 +40,10 @@ while jugando:
     if ballrect.top < 0 or ballrect.bottom > ventana.get_height():
         speed[1] = -speed[1]
 
-    if ballrect.colliderect(bricklist):
-        speed[1] = -speed[1]
-
 
     ventana.fill((252, 243, 207))
     ventana.blit(ball, ballrect)
     ventana.blit(bate, baterect)
-    ventana.blit(brick, brickrect)
 
     pygame.display.flip()
     pygame.time.Clock().tick(60)
