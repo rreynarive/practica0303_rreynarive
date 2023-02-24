@@ -13,6 +13,9 @@ ballrect = ball.get_rect()
 speed = [4, 4]
 ballrect.move_ip(0, 0)
 
+brick = pygame.image.load("brick.png")
+brickrect = brick.get_rect()
+brickrect.move_ip(100, 100)
 jugando = True
 while jugando:
     for event in pygame.event.get():
@@ -28,7 +31,7 @@ while jugando:
         speed[1] = -speed[1]
 
     ventana.fill((0, 100, 0))
-
+    ventana.blit(brick, brickrect)
     ventana.blit(ball, ballrect)
     pygame.display.flip()
     pygame.time.Clock().tick(60)

@@ -3,10 +3,13 @@ import pygame
 #Creacion de ventana de videojuego
 pygame.init()
 
-ventana = pygame.display.set_mode((640,410))
+ventana = pygame.display.set_mode((630,400))
 pygame.display.set_caption("Ejercicio 1")
 fondo = pygame.image.load("fondo.png")
-ventana.blit(fondo,[5,5])
+ventana.blit(fondo,[2,2])
+brick = pygame.image.load("brick.png")
+brickrect = brick.get_rect()
+brickrect.move_ip(300, 300)
 
 jugando = True
 while jugando:

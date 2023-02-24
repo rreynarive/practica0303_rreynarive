@@ -2,28 +2,30 @@ import pygame
 from random import randint
 
 pygame.init()
-ventana = pygame.display.set_mode((630, 410))
+ventana = pygame.display.set_mode((630, 517))
 pygame.display.set_caption("Ejemplo 4")
 
 fond = pygame.image.load("fondo.png")
 fondrect = fond.get_rect()
-
 fondrect.left = 0.1
-fondrect.top = 9
+fondrect.top = 2
 
 ball = pygame.image.load("ball.png")
 ballrect = ball.get_rect()
 speed = [randint(3, 6), randint(3, 6)]
-ballrect.move_ip(0, 0)
+ballrect.move_ip(1, 1)
 
 barra = pygame.image.load("barra.png")
 barrarect = barra.get_rect()
-barrarect.move_ip(340, 385)
+barrarect.move_ip(280, 480)
 
-bricklist = []
-for brick in bricklist:
-    brick = pygame.image.load("brick.png")
-    brickrect = brick.get_rect()
+brick = pygame.image.load("brick.png")
+brickrect = brick.get_rect()
+brickrect.move_ip(100, 100)
+
+#bricklist = []
+#brick = pygame.image.load("brick.png")
+#brickrect = brick.get_rect()
 
 fuente = pygame.font.Font(None, 150)
 
@@ -32,6 +34,7 @@ while jugando:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             jugando = False
+
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
         barrarect = barrarect.move(-3, 0)
@@ -53,10 +56,13 @@ while jugando:
         texto_y = ventana.get_height() / 2 - texto_rect.height / 2
         ventana.blit(texto, [texto_x, texto_y])
     else:
+
         ventana.fill((0, 0, 0))
         ventana.blit(fond, fondrect)
+        ventana.blit(brick, brickrect)
         ventana.blit(ball, ballrect)
         ventana.blit(barra, barrarect)
+
 
     pygame.display.flip()
     pygame.time.Clock().tick(60)
