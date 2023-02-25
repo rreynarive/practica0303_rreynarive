@@ -21,7 +21,7 @@ barrarect.move_ip(280, 480)
 
 brick = pygame.image.load("brick.png")
 brickrect = brick.get_rect()
-brickrect.move_ip(100, 100)
+brickrect.move_ip(5, 5)
 
 #bricklist = []
 #brick = pygame.image.load("brick.png")
