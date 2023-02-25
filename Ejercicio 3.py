@@ -1,5 +1,6 @@
 import pygame
 from random import randint
+from Sprites import Barra, Brick, Ball
 
 pygame.init()
 ventana = pygame.display.set_mode((630, 517))
@@ -13,7 +14,7 @@ fondrect.top = 2
 ball = pygame.image.load("ball.png")
 ballrect = ball.get_rect()
 speed = [randint(3, 6), randint(3, 6)]
-ballrect.move_ip(1, 1)
+ballrect.move_ip(310, 450)
 
 barra = pygame.image.load("barra.png")
 barrarect = barra.get_rect()
